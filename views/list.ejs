@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+
+    <link rel="stylesheet" href="css/styles.css">
+    <title>ToDo List</title>
+</head>
+
+<body>
+
+    <div class="box" id="heading">
+        <h1>
+            <%= kindOfDay %>
+        </h1>
+    </div>
+
+    <div class="box">
+
+        <% newListItems.forEach((item)=> { %>
+            <form action="/delete" method="post">
+                <div class="item">
+                    <input type="checkbox" name="checkbox" value="<%= item._id %>" onchange="this.form.submit()">
+                    <p>
+                        <%= item.name %>
+                    </p>
+                </div>
+            </form>
+            <%}); %>
+
+                <form class="" action="/" method="post">
+                    <input type="text" name="newItem" placeholder="New Item">
+                    <button type="submit" name="button">+</button>
+                </form>
+    </div>
+
+    <!--Section footer-->
+    <footer id="footer">
+        <p>© Vinicius Rosa |
+            <a href="https://www.linkedin.com/in/deviniciuss/" target="_blank"><i class="fa fa-linkedin"
+                    aria-hidden="true"></i>
+            </a> |
+            <a href="https://github.com/deviniciuss" target="_blank"><i class="fa fa-github"></i></a>
+        </p>
+    </footer>
+
+
+</body>
+
+</html>
